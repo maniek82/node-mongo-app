@@ -70,6 +70,7 @@ UserSchema.statics.findByToken = function (token) {
    });
 };
 //mongoose midleware sprawdza haslo
+//ivent = 'save' 
 UserSchema.pre('save',function (next) {
     var user = this;
     if(user.isModified('password')) {

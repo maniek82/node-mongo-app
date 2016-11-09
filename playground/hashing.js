@@ -10,10 +10,18 @@ bcrypt.genSalt(10,(err,salt)=> {
     });
 });
 
-var hashedPassword = '$2a$10$rfJc260OuQKadj7ylz0xOOabAlET/1uzYh0/ygi5NOctYtnnTBWv6';
-bcrypt.compare(password,hashedPassword,(err,res)=> {
-    console.log(res);
-});
+
+var pass = 'maniek';
+bcrypt.genSalt(10,(err,salt)=> {
+    bcrypt.hash(pass,salt,(err,hash)=> {
+        console.log(hash);
+    })
+})
+
+// var hashedPassword = '$2a$10$rfJc260OuQKadj7ylz0xOOabAlET/1uzYh0/ygi5NOctYtnnTBWv6';
+// bcrypt.compare(password,hashedPassword,(err,res)=> {
+//     console.log(res);
+// });
 
 // var data = {
 //     d: 10
