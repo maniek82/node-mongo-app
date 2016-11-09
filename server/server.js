@@ -107,22 +107,13 @@ app.post('/users', (req,res)=> {
 
 
 app.get('/users/me',authenticate,(req,res)=> {
-    // var token = req.header('x-auth');
-    // User.findByToken(token).then((user)=> {
-    //     if(!user) {
-    //         return Promise.reject();
-    //     }
-    //     res.send(user);
-    // }).catch((e)=> {
-    //     res.status(401).send();
-    // });
-    //kod powyzej przeniosiony to middleware
+
     res.send(req.user);
 });
 
 const port = process.env.PORT || 3000;
-const ip = process.env.IP;
-app.listen(port,ip,() => {
+
+app.listen(port,() => {
     console.log('Server running on port '+port);
     
 });
